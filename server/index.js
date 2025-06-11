@@ -7,6 +7,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const PORT = process.env.PORT || 3500
+const room = "heist"
 
 const app = express()
 
@@ -24,7 +25,11 @@ const io = new Server(expressServer, {
 
 io.on('connection', socket => {
     console.log(`User ${socket.id} connected`)
-    socket.on('message', data => {
-        io.emit('message',`${data}`)
+    socket.on('join', room => {
+        console.log(`Joined room ${room}`)
+        socket.join("room")
+        socket.on('message', data => {
+            io.emit('message',`${data}`)
+        })
     })
 })

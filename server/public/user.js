@@ -31,7 +31,6 @@ cameraButton.addEventListener('click', requestGetSnapshot)
 // Receive response
 socket.on('message', (data) => {
     if (data == "RESPONSE") {
-    console.log(2);
     showLoading(false)
     }
 })

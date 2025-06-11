@@ -4,7 +4,6 @@ socket.emit("join",room);
 
 function sendResponse(e) {
     e.preventDefault()
-    console.log(1);
     socket.emit('message',"RESPONSE")
 }
 
