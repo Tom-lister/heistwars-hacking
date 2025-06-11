@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename)
 
 const PORT = process.env.PORT || 3500
 
-console.log(PORT);
+console.log("Port:", PORT);
 
 const app = express()
 
