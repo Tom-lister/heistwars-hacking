@@ -1,4 +1,6 @@
 const socket = io('ws://localhost:3500')
+var room = "heist";
+socket.emit("join",room);
 
 function sendResponse(e) {
     e.preventDefault()
