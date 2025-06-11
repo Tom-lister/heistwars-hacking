@@ -1,6 +1,5 @@
 const socket = io('ws://localhost:3500')
 var room = "heist";
-socket.emit("join",room);
 
 const optionsDiv = document.getElementById("options");
 const loadingDiv = document.getElementById("loading");
@@ -34,3 +33,5 @@ socket.on('message', (data) => {
     showLoading(false)
     }
 })
+
+socket.emit("join",room);

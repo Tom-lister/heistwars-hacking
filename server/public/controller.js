@@ -1,6 +1,5 @@
 const socket = io('ws://localhost:3500')
 var room = "heist";
-socket.emit("join",room);
 
 function sendResponse(e) {
     e.preventDefault()
@@ -16,3 +15,5 @@ responseButton.addEventListener('click', sendResponse)
 socket.on('message', (data) => {
     p.innerHTML = data
 })
+
+socket.emit("join",room);
