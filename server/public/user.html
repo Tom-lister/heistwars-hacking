@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HACKING INTERFACE</title>
+        <link href="user.css" rel="stylesheet">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.min.js"
+            integrity="sha512-8ExARjWWkIllMlNzVg7JKq9RKWPlJABQUNq6YvAjE/HobctjH/NA+bSiDMDvouBVjp4Wwnf1VP1OEv7Zgjtuxw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer">
+        </script>
+        <script defer src="user.js"></script>
+    </head>
+    <body>
+        <div id="options">
+            <button type='button' id="playSound"><img src="sound.jpg"/></button>
+            <button type='button' id="getSnapshot"><img src="camera.jpg"/></button>
+            <button type='button' id="checkCode"><img src="code.jpg"/></button>
+        </div>
+        <div id="loading" style="display: none;"><img src="loading wheel.gif"/></div>
+    </body>
+</html>

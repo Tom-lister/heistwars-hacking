@@ -1,0 +1,42 @@
+body {
+    background-image: url("industrial.jpg");
+    background-size: cover;
+}
+
+p {
+    color: white;
+}
+
+#options {
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top:10%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    height: 28%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: none;
+    background: none;
+}
+
+#options img {
+    width: 100%;
+}
+
+#loading img {
+    width: 25%;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
