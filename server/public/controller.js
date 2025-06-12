@@ -1,4 +1,4 @@
-const socket = io('https://heistwars-hacking.onrender.com:10000/')
+const socket = io('https://heistwars-hacking.onrender.com')
 var room = "heist";
 
 function sendResponse(e) {
