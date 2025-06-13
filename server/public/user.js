@@ -1,12 +1,13 @@
-const socket = io('https://heistwars-hacking.onrender.com')
+const socket = io('ws://localhost:3500/') //https://heistwars-hacking.onrender.com
 var room = "heist";
 
 const optionsDiv = document.getElementById("options");
 const loadingDiv = document.getElementById("loading");
+const soundOptionsDiv = document.getElementById("soundOptions");
 
-function requestPlaySound(e) {
+function requestPlaySound(e, message) {
     e.preventDefault()
-    socket.emit('message','playSound')
+    socket.emit('message',message)
     showLoading()
 }
 
@@ -19,10 +20,21 @@ function requestGetSnapshot(e) {
 function showLoading(show = true) {
     optionsDiv.style.display = show ? "none" : "flex";
     loadingDiv.style.display = show ? "inline" : "none";
+    soundOptionsDiv.style.display = "none";
+}
+
+function showSoundOptions() {
+    optionsDiv.style.display = "none";
+    soundOptionsDiv.style.display = "flex";
 }
 
 const soundButton = document.getElementById("playSound")
-soundButton.addEventListener('click', requestPlaySound)
+soundButton.addEventListener('click', showSoundOptions)
+
+for (var i = 0; i < soundOptionsDiv.children.length; i++) {
+    const child = soundOptionsDiv.children[i];
+    child.addEventListener('click', (e) => {requestPlaySound(e,"Play sound: " + child.innerHTML)})
+}
 
 const cameraButton = document.getElementById("getSnapshot")
 cameraButton.addEventListener('click', requestGetSnapshot)

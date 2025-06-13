@@ -31,5 +31,8 @@ io.on('connection', socket => {
         socket.on('message', data => {
             io.emit('message',`${data}`)
         })
+        socket.on('image', data => {
+            io.emit('image', data)
+        })
     })
 })

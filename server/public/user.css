@@ -19,12 +19,38 @@ p {
     align-items: center;
 }
 
-button {
+#soundOptions {
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top:10%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+
+.mainOptionsButton {
     height: 28%;
     aspect-ratio: 1;
     object-fit: cover;
     border: none;
     background: none;
+}
+
+.soundOptionsButton {
+    width: 90%;
+    border: 3px solid #15ff00;
+    background: black;
+    color: white;
+    font-size: x-large;
+    object-fit: cover;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 5%;
 }
 
 #options img {
