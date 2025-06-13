@@ -14,7 +14,18 @@ const responseButton = document.getElementById("respond")
 responseButton.addEventListener('click', sendResponse)
 
 window.addEventListener('paste', e => {
-  console.log(e.clipboardData.files);
+  const imageFile = e.clipboardData.files[0];
+var fileReader = new FileReader();
+
+fileReader.onloadend = function (event) {
+    // Send an image event to the socket
+    var image = event.target.result
+    img.src = image;
+    socket.emit("image", image);
+};
+
+// Read file
+fileReader.readAsDataURL(imageFile);
 });
 
 // Listen for requests

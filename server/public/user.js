@@ -4,6 +4,8 @@ var room = "heist";
 const optionsDiv = document.getElementById("options");
 const loadingDiv = document.getElementById("loading");
 const soundOptionsDiv = document.getElementById("soundOptions");
+const imageDiv = document.getElementById("imageDiv");
+const image = document.getElementById("image");
 
 function requestPlaySound(e, message) {
     e.preventDefault()
@@ -44,6 +46,14 @@ socket.on('message', (data) => {
     if (data == "RESPONSE") {
     showLoading(false)
     }
+})
+
+socket.on('image', (data) => {
+    image.src = data
+    showLoading(false)
+    optionsDiv.style.display = "none";
+    imageDiv.style.display = "block";
+
 })
 
 socket.emit("join",room);

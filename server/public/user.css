@@ -1,6 +1,9 @@
 body {
     background-image: url("industrial.jpg");
     background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
 }
 
 p {
@@ -65,4 +68,15 @@ p {
     right:0;
     bottom:0;
     margin:auto;
+}
+
+.imageDiv {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.imageDiv img {
+    object-fit: contain;
 }
