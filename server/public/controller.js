@@ -1,4 +1,5 @@
-const socket = io('ws://localhost:3500/') //https://heistwars-hacking.onrender.com
+//const socket = io('ws://localhost:3500/')
+const socket = io('https://heistwars-hacking.onrender.com')
 var room = "heist";
 
 function sendResponse(e) {
