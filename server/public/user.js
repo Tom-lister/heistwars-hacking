@@ -65,6 +65,16 @@ cameraButton.addEventListener('click', requestGetSnapshot)
 codeButton.addEventListener('click', showCodeEntry)
 codeForm.addEventListener('submit', submitCode)
 
+successBanner.children[3].addEventListener('click', (e) => {
+    e.preventDefault();
+    removeBanner();
+})
+
+failureBanner.children[3].addEventListener('click', (e) => {
+    e.preventDefault();
+    removeBanner();
+})
+
 // Receive response
 socket.on('message', (data) => {
     if (data == "RESPONSE") {
@@ -91,14 +101,12 @@ function showSuccess() {
     showLoading(false)
     optionsDiv.style.display = "none";
     successBanner.style.display = "flex";
-    setTimeout(removeBanner,3000);
 }
 
 function showFailure() {
     showLoading(false)
     optionsDiv.style.display = "none";
     failureBanner.style.display = "flex";
-    setTimeout(removeBanner,4000);
 }
 
 function removeBanner() {

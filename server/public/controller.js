@@ -27,6 +27,7 @@ window.addEventListener('paste', e => {
         img.src = image;
         socket.emit("image", image);
         p.innerHTML = "RESPONSE"
+        document.body.style.backgroundColor = "white";
     };
 
     // Read file
@@ -35,7 +36,13 @@ window.addEventListener('paste', e => {
 
 // Listen for requests
 socket.on('message', (data) => {
+    console.log(data);
     p.innerHTML = data
+    if (["RESPONSE","SUCCESS","FAILURE"].includes(data)) {
+        document.body.style.backgroundColor = "white";
+    } else {
+        document.body.style.backgroundColor = "#ffcfcf";
+    }
 })
 
 socket.emit("join", room);
