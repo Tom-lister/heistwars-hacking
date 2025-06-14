@@ -54,7 +54,10 @@ socket.on('image', (data) => {
     showLoading(false)
     optionsDiv.style.display = "none";
     imageDiv.style.display = "block";
-
+    document.body.addEventListener("click",() => {
+        optionsDiv.style.display = "flex";
+        imageDiv.style.display = "none";
+    }, {once: true})
 })
 
 socket.emit("join",room);

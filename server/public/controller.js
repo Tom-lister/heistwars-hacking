@@ -5,7 +5,6 @@ var room = "heist";
 function sendResponse(e) {
     e.preventDefault()
     socket.emit('message',"RESPONSE")
-    console.log("Here")
 }
 
 const p = document.getElementById("request")
@@ -16,17 +15,18 @@ responseButton.addEventListener('click', sendResponse)
 
 window.addEventListener('paste', e => {
   const imageFile = e.clipboardData.files[0];
-var fileReader = new FileReader();
+    var fileReader = new FileReader();
 
-fileReader.onloadend = function (event) {
-    // Send an image event to the socket
-    var image = event.target.result
-    img.src = image;
-    socket.emit("image", image);
-};
+    fileReader.onloadend = function (event) {
+        // Send an image event to the socket
+        var image = event.target.result
+        img.src = image;
+        socket.emit("image", image);
+        p.innerHTML = "RESPONSE"
+    };
 
-// Read file
-fileReader.readAsDataURL(imageFile);
+    // Read file
+    fileReader.readAsDataURL(imageFile);
 });
 
 // Listen for requests
