@@ -2,19 +2,23 @@
 const socket = io('https://heistwars-hacking.onrender.com')
 var room = "heist";
 
-function sendResponse(e) {
-    e.preventDefault()
-    socket.emit('message',"RESPONSE")
+function sendResponse(message) {
+    socket.emit('message', message)
 }
 
 const p = document.getElementById("request")
 const img = document.getElementById("image")
 
 const responseButton = document.getElementById("respond")
-responseButton.addEventListener('click', sendResponse)
+const successButton = document.getElementById("success")
+const failureButton = document.getElementById("failure")
+
+responseButton.addEventListener('click', () => { sendResponse("RESPONSE") })
+successButton.addEventListener('click', () => { sendResponse("SUCCESS") })
+failureButton.addEventListener('click', () => { sendResponse("FAILURE") })
 
 window.addEventListener('paste', e => {
-  const imageFile = e.clipboardData.files[0];
+    const imageFile = e.clipboardData.files[0];
     var fileReader = new FileReader();
 
     fileReader.onloadend = function (event) {
@@ -34,4 +38,4 @@ socket.on('message', (data) => {
     p.innerHTML = data
 })
 
-socket.emit("join",room);
+socket.emit("join", room);

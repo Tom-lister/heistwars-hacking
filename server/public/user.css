@@ -4,17 +4,19 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
+    display: flex;
 }
 
 p {
     color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #options {
     width: 80%;
     height: 80%;
     left: 10%;
-    top:10%;
+    top: 10%;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -26,7 +28,7 @@ p {
     width: 80%;
     height: 80%;
     left: 10%;
-    top:10%;
+    top: 10%;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -62,12 +64,12 @@ p {
 
 #loading img {
     width: 25%;
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    margin:auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 #imageDiv {
@@ -81,4 +83,56 @@ p {
     height: 100%;
     width: 100%;
     object-fit: contain;
+}
+
+#codeDiv {
+    text-align: center;
+    width: 100%;
+}
+
+#codeForm {
+    text-align: center;
+    margin: auto;
+}
+
+label {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+    color: white;
+}
+
+input {
+    font-size: large;
+}
+
+.resultBanner {
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+}
+
+.resultBanner div {
+    width: 100%;
+    background: black;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.resultSubtitle {
+    font-size: x-large;
+}
+
+#success div {
+    border: 3px solid #15ff00;
+}
+
+#failure div {
+    border: 3px solid #ff0000;
 }
