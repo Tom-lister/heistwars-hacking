@@ -16,6 +16,7 @@ const codeButton = document.getElementById("checkCode")
 
 const successBanner = document.getElementById("success")
 const failureBanner = document.getElementById("failure")
+const activationBanner = document.getElementById("activation")
 
 function requestPlaySound(e, message) {
     e.preventDefault()
@@ -83,6 +84,8 @@ socket.on('message', (data) => {
         showSuccess()
     } else if (data == "FAILURE") {
         showFailure()
+    } else if (data === "ACTIVATION") {
+        showActivation()
     }
 })
 
@@ -107,6 +110,12 @@ function showFailure() {
     showLoading(false)
     optionsDiv.style.display = "none";
     failureBanner.style.display = "flex";
+}
+
+function showActivation() {
+    showLoading(false)
+    optionsDiv.style.display = "none";
+    activationBanner.style.display = "flex";
 }
 
 function removeBanner() {

@@ -12,10 +12,12 @@ const img = document.getElementById("image")
 const responseButton = document.getElementById("respond")
 const successButton = document.getElementById("success")
 const failureButton = document.getElementById("failure")
+const activationButton = document.getElementById("activation")
 
 responseButton.addEventListener('click', () => { sendResponse("RESPONSE") })
 successButton.addEventListener('click', () => { sendResponse("SUCCESS") })
 failureButton.addEventListener('click', () => { sendResponse("FAILURE") })
+activationButton.addEventListener('click', () => { sendResponse("ACTIVATION") })
 
 window.addEventListener('paste', e => {
     const imageFile = e.clipboardData.files[0];
