@@ -10,14 +10,8 @@ const p = document.getElementById("request")
 const img = document.getElementById("image")
 
 const responseButton = document.getElementById("respond")
-const successButton = document.getElementById("success")
-const failureButton = document.getElementById("failure")
-const activationButton = document.getElementById("activation")
 
 responseButton.addEventListener('click', () => { sendResponse("RESPONSE") })
-successButton.addEventListener('click', () => { sendResponse("SUCCESS") })
-failureButton.addEventListener('click', () => { sendResponse("FAILURE") })
-activationButton.addEventListener('click', () => { sendResponse("ACTIVATION") })
 
 window.addEventListener('paste', e => {
     const imageFile = e.clipboardData.files[0];
@@ -40,10 +34,17 @@ window.addEventListener('paste', e => {
 socket.on('message', (data) => {
     console.log(data);
     p.innerHTML = data
-    if (["RESPONSE","SUCCESS","FAILURE"].includes(data)) {
+    if (data == "RESPONSE") {
         document.body.style.backgroundColor = "white";
+    } else if (data == "SUCCESS") {
+        document.body.style.backgroundColor = "green";
+    } else if (data == "ACTIVATION") {
+        document.body.style.backgroundColor = "red";
+    } else if (data== "FAILURE") {
+        p.innerHTML = "Guessed code incorrectly"
+        document.body.style.backgroundColor = "#ffcfcf"
     } else {
-        document.body.style.backgroundColor = "#ffcfcf";
+        document.body.style.backgroundColor = "#ffef9e";
     }
 })
 

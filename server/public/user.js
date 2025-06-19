@@ -33,8 +33,23 @@ function requestGetSnapshot(e) {
 function submitCode(e) {
     e.preventDefault()
     const guess = document.getElementById("codeInput").value
-    socket.emit('message', 'Code guess: ' + guess)
+    const formattedGuess = guess.replaceAll(" ","").toUpperCase()
+    console.log(formattedGuess)
     showLoading();
+    setTimeout(() => {evaluateCode(formattedGuess)},3000);
+}
+
+function evaluateCode(guess) {
+    if (guess == "A1H18I22" || guess == "A1H18L22") {
+        showActivation()
+        socket.emit('message', 'ACTIVATION')
+    } else if (guess == "17A19C5A") {
+        showSuccess()
+        socket.emit('message', 'SUCCESS')
+    } else {
+        showFailure()
+        socket.emit('message','FAILURE')
+    }
 }
 
 function showLoading(show = true) {
@@ -66,11 +81,6 @@ cameraButton.addEventListener('click', requestGetSnapshot)
 codeButton.addEventListener('click', showCodeEntry)
 codeForm.addEventListener('submit', submitCode)
 
-successBanner.children[3].addEventListener('click', (e) => {
-    e.preventDefault();
-    removeBanner();
-})
-
 failureBanner.children[3].addEventListener('click', (e) => {
     e.preventDefault();
     removeBanner();
@@ -80,12 +90,6 @@ failureBanner.children[3].addEventListener('click', (e) => {
 socket.on('message', (data) => {
     if (data == "RESPONSE") {
         showLoading(false)
-    } else if (data == "SUCCESS") {
-        showSuccess()
-    } else if (data == "FAILURE") {
-        showFailure()
-    } else if (data === "ACTIVATION") {
-        showActivation()
     }
 })
 
